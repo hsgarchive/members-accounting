@@ -1,4 +1,3 @@
-members-accounting
-==================
+# Legolas
 
-Membership management system
+"Membership Management for HackerspaceSG"
