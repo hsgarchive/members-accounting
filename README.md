@@ -3,7 +3,7 @@
 "Membership Management for HackerspaceSG"
 
 ### Specifications
-[wiki/specifications](wiki/specifications)
+[wiki/specifications](https://github.com/hackerspacesg/members-accounting/wiki/specifications)
 
 ### Install
 ```bash
