@@ -5,24 +5,18 @@
 ### Specifications
 [wiki/specifications](https://github.com/hackerspacesg/members-accounting/wiki/specifications)
 
-## Laravel PHP Framework
+## Initial Setup
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.png)](https://packagist.org/packages/laravel/framework)
+Currently, the system works on localhost. It should be accesible via http://localhost/public (unless you are using vhosts)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+Steps to get you started:
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+0. For Mac system, compile MCrypt. Follow instructions here: http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-9-mavericks-development-server/
+1. Install PHP Composer: https://getcomposer.org/doc/00-intro.md#installation-nix
+2. Install Laravel: http://laravel.com/docs/installation
+3. Clone this repo.
+4. Open terminal and change directory to the project root folder.
+5. Setup initial database:
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
-
-### Contributing To Laravel
-
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+	php artisan migrate:install
+	php artisan migrate
