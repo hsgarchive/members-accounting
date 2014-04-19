@@ -19,6 +19,7 @@
     "less": "~1.6.1",
     "dustjs-linkedin": "~2.0.3",
     "dustjs-helpers": "~1.1.1",
+    "csv": "~0.3.7",
     "makara": "~0.3.0"
   },
   "devDependencies": {

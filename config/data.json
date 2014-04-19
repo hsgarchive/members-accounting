@@ -1,0 +1,14 @@
+{
+    "members" : {
+        "key": "0AoY8QFmySuLqdHdpU1lqUy1WV3NBQ3MyNGlfUXoxV1E",
+        "gid": 3
+    },
+    "stanchart" : {
+        "key": "0AoY8QFmySuLqdHlfUTZoZ0U3Qzl4aGRfWFktd1NzZnc",
+        "gid": 2
+    },
+    "paypal" : {
+        "key": "0AoY8QFmySuLqdHlfUTZoZ0U3Qzl4aGRfWFktd1NzZnc",
+        "gid": 5
+    }
+}
