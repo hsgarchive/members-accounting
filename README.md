@@ -18,5 +18,5 @@ Steps to get you started:
 4. Open terminal and change directory to the project root folder.
 5. Setup initial database:
 
-	php artisan migrate:install
-	php artisan migrate
+    php artisan migrate:install
+    php artisan migrate
