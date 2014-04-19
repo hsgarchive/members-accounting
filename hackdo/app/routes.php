@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@showWelcome');
 Route::resource('members', 'MembersController');
 Route::resource('subscriptions', 'SubscriptionsController');
 Route::resource('contracts', 'ContractsController');
