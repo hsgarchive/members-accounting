@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
     	"way/generators": "dev-master",
-    	"twbs/bootstrap-sass": "v3.1.1"
+    	"twbs/bootstrap-sass": "v3.1.1",
+    	"codesleeve/asset-pipeline": "v2.0.3"
 	},
 	"autoload": {
 		"classmap": [
