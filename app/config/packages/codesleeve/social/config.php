@@ -12,7 +12,7 @@ return array(
 	|
 	*/
 	'routing' => array(
-		'prefix' => '/social'
+		'prefix' => '/oauth'
 	),
 
 	/*

@@ -15,3 +15,8 @@ Route::get('/', 'HomeController@showWelcome');
 Route::resource('members', 'MembersController');
 Route::resource('subscriptions', 'SubscriptionsController');
 Route::resource('contracts', 'ContractsController');
+Route::get('/oauth/{provider?}', array(
+		'as'=> 'oauth_' . Request::segment(2),
+		'uses' => 'SocialLoginController@' . Str::camel(Request::segment(2))
+	)
+);
