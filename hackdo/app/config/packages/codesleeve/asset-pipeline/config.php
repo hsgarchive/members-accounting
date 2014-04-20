@@ -49,9 +49,9 @@ return array(
 		'provider/assets/javascripts',
 		'provider/assets/stylesheets',
 		'provider/assets/images',
-		'vendor/twbs/bootstrap-sass/vendor/assets/javascripts',	
-		'vendor/twbs/bootstrap-sass/vendor/assets/stylesheets',
-		'vendor/twbs/bootstrap-sass/vendor/assets/fonts'
+		'vendor/twbs/bootstrap/dist/js',
+		'vendor/twbs/bootstrap/dist/fonts',
+		'vendor/twbs/bootstrap/dist/css',	
 	),
 
 	/*
