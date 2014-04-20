@@ -48,7 +48,10 @@ return array(
 		'lib/assets/images',
 		'provider/assets/javascripts',
 		'provider/assets/stylesheets',
-		'provider/assets/images'
+		'provider/assets/images',
+		'vendor/twbs/bootstrap-sass/vendor/assets/javascripts',	
+		'vendor/twbs/bootstrap-sass/vendor/assets/stylesheets',
+		'vendor/twbs/bootstrap-sass/vendor/assets/fonts'
 	),
 
 	/*
@@ -65,6 +68,8 @@ return array(
 	'mimes' => array(
 	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js'),
 	    'stylesheets' => array('.css', '.css.less', '.css.sass', '.css.scss', '.less', '.sass', '.scss', '.min.css'),
+	    'images' => array('.png', '.jpg'),
+	    'fonts' => array('.eot', '.otf', '.svg', '.ttf', '.woff')
 	),
 
 	/*
@@ -78,6 +83,14 @@ return array(
 	|
 	*/
 	'filters' => array(
+		'.eot'    => array(
+        ),
+        '.svg'    => array(
+        ),
+        '.ttf'    => array(
+        ),
+        '.woff'    => array(
+        ),
 		'.min.js' => array(
 
 		),
