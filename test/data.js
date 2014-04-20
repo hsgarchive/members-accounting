@@ -10,13 +10,14 @@ var app = require('../index'),
     fs = require('fs'),
     assert = require('assert');
 
-function downloadCSV(name, data) {
+function downloadCSV(name, data, o) {
     var spreadsheetUrl = "https://docs.google.com/spreadsheet/pub?single=true&output=csv&gid="
         + data.gid + "&key=" + data.key;
     var csvFile = "data/" + name + ".csv";
     var httpsRequest = https.get(spreadsheetUrl, function(response) {
         var file = fs.createWriteStream(csvFile);
         response.pipe(file);
+        ++ o.counter >= o.dataLength && o.callback();
     });
 }
 
@@ -27,11 +28,17 @@ describe('data', function () {
                 return console.log(err);
             }
             data = JSON.parse(data);
+            
+            var opt = {
+                counter: 0,
+                dataLength: Object.keys(data).length,
+                callback: done
+            };
+            
             for (var i in data)
             {
-                downloadCSV(i, data[i]);
+                downloadCSV(i, data[i], opt);
             }
-            setTimeout(done, 5000);
         });
     });
 });
