@@ -10,6 +10,15 @@ var app = require('../index'),
     fs = require('fs'),
     assert = require('assert');
 
+function downloadCSV(name, data) {
+    var spreadsheetUrl = "https://docs.google.com/spreadsheet/pub?single=true&output=csv&gid="
+        + data.gid + "&key=" + data.key;
+    var csvFile = "data/" + name + ".csv";
+    var httpsRequest = https.get(spreadsheetUrl, function(response) {
+        var file = fs.createWriteStream(csvFile);
+        response.pipe(file);
+    });
+}
 
 describe('data', function () {
     it('should download CSV files', function (done) {
@@ -18,18 +27,11 @@ describe('data', function () {
                 return console.log(err);
             }
             data = JSON.parse(data);
-        
             for (var i in data)
             {
-                // console.log(data[i]);
-                var spreadsheetUrl = "https://docs.google.com/spreadsheet/pub?single=true&output=csv&gid=" + data[i].gid + "&key=" + data[i].key;
-                console.log(spreadsheetUrl, "data/" + i + ".csv");
-                var file = fs.createWriteStream("data/" + i + ".csv");
-                var request = https.get(spreadsheetUrl, function(response) {
-                    console.log(response)
-                    // response.pipe(file);
-                });
+                downloadCSV(i, data[i]);
             }
+            setTimeout(done, 5000);
         });
     });
 });
