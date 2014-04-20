@@ -8,7 +8,8 @@
     	"way/generators": "dev-master",
     	"twbs/bootstrap-sass": "v3.1.1",
     	"twbs/bootstrap": "v3.1.1",
-    	"codesleeve/asset-pipeline": "v2.0.3"
+    	"codesleeve/asset-pipeline": "v2.0.3",
+    	"codesleeve/social": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

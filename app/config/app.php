@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://members.hackerspace.sg',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -187,6 +187,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+		'Social'		  => 'Codesleeve\Social\Social',
 
 	),
 
