@@ -20,3 +20,4 @@ Route::get('/oauth/{provider?}', array(
 		'uses' => 'SocialLoginController@' . Str::camel(Request::segment(2))
 	)
 );
+Route::get('/report', 'HomeController@showAdmin');

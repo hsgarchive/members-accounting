@@ -15,9 +15,22 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function __construct() {
+		$this->beforeFilter('csrf', array('on'=>'post'));
+	}
+
+	public function index(){
+		
+	}
+
 	public function showWelcome()
 	{
 		return View::make('dashboard.welcome');
+	}
+
+	public function showAdmin()
+	{
+		return View::make('dashboard.report');
 	}
 
 }

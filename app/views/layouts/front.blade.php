@@ -10,7 +10,7 @@
 
 	<title>HackerspaceSG Membership Management System</title>
 
-	<?= stylesheet_link_tag() ?>
+	<?= stylesheet_link_tag('front') ?>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
