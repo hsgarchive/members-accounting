@@ -2,6 +2,12 @@
 
 class ExampleTest extends TestCase {
 
+    public function setUp()
+    {
+        $_SESSION = array('PHP_SAPI' => PHP_SAPI);
+        return parent::setUp();
+    }
+
 	/**
 	 * A basic functional test example.
 	 *
