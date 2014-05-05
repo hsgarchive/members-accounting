@@ -9,25 +9,22 @@
 
 Steps to get you started:
 
-1. Install PHP 5.4
-2. Install [mcrypt](http://coolestguidesontheplanet.com/install-mcrypt-php-mac-osx-10-9-mavericks-development-server/) and [composer](https://getcomposer.org/doc/00-intro.md#installation-nix)
-3. In the project root folder, run
-
-    ```bash
-    composer install
-```
-4. Setup initial database:
+1. Install PHP 5.4 with `mcrypt` and `phpunit`
+2. Install [composer](https://getcomposer.org/doc/00-intro.md#installation-nix)
+3. Then run `composer install` in the project root folder
+4. Setup initial database `app/database/production.sqlite`:
 
     ```bash
     php artisan migrate:install
     php artisan migrate
 ```
-5. Start server
+5. Ensure all tests are running smoothly
 
     ```bash
-    php -S localhost:4000 server.php
+    phpunit
 ```
+6. Start server
 
-6. As for development purposes (so far), we are using sqlite. You may use [SQLite Manager (Firefox addon)](https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/) to view the database which should be located at: /app/database/production.sqlite 
-
-Note: do not commit the production.sqlite file.
+    ```bash
+    php artisan serve
+```
