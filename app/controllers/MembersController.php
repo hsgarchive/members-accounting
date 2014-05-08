@@ -9,8 +9,7 @@ class MembersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$members = Member::all();
-
+		$members = Member::listAll();
 		return View::make('members.index', compact('members'));
 	}
 
@@ -51,9 +50,72 @@ class MembersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$member = Member::findOrFail($id);
+		// $member = Member::findOrFail($id);
+	    $member = Member::search($id);
+	    list($paypal, $stanchart) = $this->getTransactions($id, $member);
+		return View::make('members.show', compact('member', 'paypal', 'stanchart'));
+	}
+	
+	private function getTransactions($id, $member)
+	{
 
-		return View::make('members.show', compact('member'));
+// 	    "Date",
+// 	    "Transaction",
+// 	    "Currency",
+// 	    "Deposit",
+// 	    "Withdrawal",
+// 	    "Running Balance",
+// 	    "SGD Equivalent Balance",
+// 	    "Balance"
+	    $stanchart = new Spreadsheet('stanchart');
+	    $csv = $stanchart->readCSV();
+	    $stanchart = array();
+	    foreach ($csv as $data)
+	    {
+            if (stripos($data['Transaction'], $id) !== false)
+            {
+                $stanchart[] = $data;
+            }
+	    }
+
+
+// 	    "Date",
+// 	    "Time",
+// 	    "Time Zone",
+// 	    "Name",
+// 	    "Type",
+// 	    "Status",
+// 	    "Currency",
+// 	    "Gross",
+// 	    "Fee",
+// 	    "Net",
+// 	    "From Email Address",
+// 	    "To Email Address",
+// 	    "Transaction ID",
+// 	    "Counterparty Status",
+// 	    "Item Title",
+// 	    "Address Line 1",
+// 	    "Address Line 2/District/Neighbourhood",
+// 	    "Town/City",
+// 	    "State/Province/Region/County/Territory/Prefecture/Republic",
+// 	    "Postcode",
+// 	    "Country",
+// 	    "Contact Phone Number",
+// 	    "Balance"
+	  
+	    $paypal = new Spreadsheet('paypal');
+	    $csv = $paypal->readCSV();
+	    $paypal = array();
+	    foreach ($csv as $data)
+	    {
+	        if (stripos($data['Name'], $id) !== false
+	            || stripos($data["From Email Address"], $id) !== false)
+	        {
+	            $paypal[] = $data;
+	        }
+	    }
+	    
+	    return array($paypal, $stanchart);
 	}
 
 	/**
