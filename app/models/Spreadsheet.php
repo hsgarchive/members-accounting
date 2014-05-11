@@ -3,7 +3,7 @@
 class Spreadsheet
 {
 
-    private $configFile = 'config/spreadsheets.json';
+    private $configFile = 'app/config/spreadsheets.json';
     private $csvFileFormat = 'app/database/%s.csv';
 
     private $name = '';
