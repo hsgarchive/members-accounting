@@ -35,6 +35,7 @@ class Spreadsheet
 
     public function readCSV()
     {
+        $this->check();
         $csv = array();
         if (($handle = fopen($this->csvFile, "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1024, ",")) !== FALSE) {
@@ -42,8 +43,7 @@ class Spreadsheet
                     $header = $data;
                     continue;
                 }
-                $data = array_combine($header, $data);
-                $csv[] = $data;
+                $csv[] = $this->filterDataByFields(array_combine($header, $data));
             }
             fclose($handle);
         }
@@ -65,5 +65,15 @@ class Spreadsheet
             throw new Exception('CSV download failed for: ' . $csvFile);
         
         return $fileSize;
+    }
+
+    private function filterDataByFields($data)
+    {
+        $_data = array();
+        foreach ($this->config['fields'] as $index => $key)
+        {
+            $_data[is_string($index) ? $index : $key] = $data[$key];
+        }
+        return $_data;
     }
 }
