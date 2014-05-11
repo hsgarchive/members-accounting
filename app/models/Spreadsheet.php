@@ -14,7 +14,9 @@ class Spreadsheet
     {
         $this->name = $name;
         $this->csvFile = sprintf($this->csvFileFormat, $this->name);
-        $this->config = json_decode(file_get_contents($this->configFile), true)[$this->name];
+        $config = file_get_contents($this->configFile);
+        $config = preg_replace('/\/\/.*/', '', $config);
+        $this->config = json_decode($config, true)[$this->name];
     }
 
     public function getConfig()
