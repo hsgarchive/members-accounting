@@ -23,6 +23,12 @@ Steps to get you started:
     ```bash
     phpunit
 ```
+or if you prefer to use `composer`'s phpunit
+
+    ```bash
+    vendor/bin/phpunit
+```
+
 6. Start server
 
     ```bash
