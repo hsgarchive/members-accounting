@@ -1,6 +1,6 @@
-@extends('layouts.dashboard')
+@extends('layouts.generic')
 
-@section('home')
+@section('content')
     <!-- {{  json_encode($member) }} -->
     
     <h1>{{ $member['Name'] }}</h1>
