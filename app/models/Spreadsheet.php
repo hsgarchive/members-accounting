@@ -72,7 +72,8 @@ class Spreadsheet
         $_data = array();
         foreach ($this->config['fields'] as $index => $key)
         {
-            $_data[is_string($index) ? $index : $key] = $data[$key];
+            array_key_exists($key, $data) &&
+                $_data[is_string($index) ? $index : $key] = $data[$key];
         }
         return $_data;
     }
