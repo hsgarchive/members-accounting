@@ -52,8 +52,8 @@ class MembersController extends \BaseController {
 	{
 		// $member = Member::findOrFail($id);
 	    $member = Member::search($id);
-	    list($paypal, $stanchart) = $this->getTransactions($id, $member);
-		return View::make('members.show', compact('member', 'paypal', 'stanchart'));
+	    list($paypal, $stanchart, $accreceivables) = $this->getTransactions($id, $member);
+		return View::make('members.show', compact('member', 'paypal', 'stanchart', 'accreceivables'));
 	}
 	
 	private function getTransactions($id, $member)
@@ -114,8 +114,19 @@ class MembersController extends \BaseController {
 	            $paypal[] = $data;
 	        }
 	    }
-	    
-	    return array($paypal, $stanchart);
+
+	    $accreceivables = new Spreadsheet('accreceivables');
+	    $csv = $accreceivables->readCSV();
+	    $accreceivables = array();
+	    foreach ($csv as $data)
+	    {
+	      if (stripos($data['Name'], $id) !== false)
+	      {
+	        $accreceivables[] = $data;
+	      }
+	    }
+
+	    return array($paypal, $stanchart, $accreceivables);
 	}
 
 	/**

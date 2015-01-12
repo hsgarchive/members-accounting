@@ -8,6 +8,13 @@
             "email"
         ]
     },
+    "accreceivables": {
+        "key": "0AoY8QFmySuLqdGxyd21QdlF1SU9CVUJ2ZHRMQkJiR1E",
+        "gid": 17,
+        "fields": [
+            "Type", "Date", "Num", "Name", "Memo", "Account", "Clr", "Split", "Amount"
+        ]
+    },
     "stanchart": {
         "key": "0AoY8QFmySuLqdHlfUTZoZ0U3Qzl4aGRfWFktd1NzZnc",
         "gid": 2,

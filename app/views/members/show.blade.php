@@ -8,7 +8,9 @@
     <p>{{ $member['email'] }}</p>
     
     @if (count($paypal))
-    <table>
+    <div class="table-responsive">
+    <h3>PayPal</h3>
+    <table class="table">
         <tr>
             @foreach(array_keys($paypal[0]) as $header)
                 <td>{{ $header }}</td>
@@ -22,9 +24,12 @@
             </tr>
         @endforeach
     </table>
+    </div>
     @endif
     @if (count($stanchart))
-    <table>
+    <div class="table-responsive">
+    <h3>Stanchart</h3>
+    <table class="table">
         <tr>
             @foreach(array_keys($stanchart[0]) as $header)
                 <td>{{ $header }}</td>
@@ -38,5 +43,25 @@
             </tr>
         @endforeach
     </table>
+    </div>
+    @endif
+    @if (count($accreceivables))
+    <div class="table-responsive">
+    <h3>Account Receivables</h3>
+    <table class="table">
+        <tr>
+            @foreach(array_keys($accreceivables[0]) as $header)
+                <td>{{ $header }}</td>
+            @endforeach
+        </tr>
+        @foreach($accreceivables as $details)
+            <tr>
+                @foreach($details as $detail)
+                    <td>{{ $detail }}</td>
+                @endforeach
+            </tr>
+        @endforeach
+    </table>
+    </div>
     @endif
 @stop

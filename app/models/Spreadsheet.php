@@ -9,12 +9,13 @@ class Spreadsheet
     private $name = '';
     private $csvFile = '';
     private $config = '';
+    private $dir = '../';
 
     public function __construct($name)
     {
         $this->name = $name;
-        $this->csvFile = sprintf($this->csvFileFormat, $this->name);
-        $config = file_get_contents($this->configFile);
+        $this->csvFile = $this->dir . sprintf($this->csvFileFormat, $this->name);
+        $config = file_get_contents($this->dir . $this->configFile);
         $config = preg_replace('/\/\/.*/', '', $config);
         $this->config = json_decode($config, true)[$this->name];
     }
