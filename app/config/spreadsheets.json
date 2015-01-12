@@ -76,5 +76,19 @@
 //            "Contact Phone Number",
             "Balance"
         ]
+    },
+    "cheques": {
+        "key": "0AhfeKkvX4aAGdDU4dTk0TGJJblQ0ajFKSUpYX1FiQnc",
+        "gid": 0,
+        "fields": [
+            "Timestamp",
+            "Username",
+            "Payee",
+            "Purpose Bank",
+            "Cheque number/transaction number",
+            "Amount",
+            "Links to any relevant images",
+            "Any other comments"
+        ]
     }
 }

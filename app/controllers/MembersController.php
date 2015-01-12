@@ -52,13 +52,12 @@ class MembersController extends \BaseController {
 	{
 		// $member = Member::findOrFail($id);
 	    $member = Member::search($id);
-	    list($paypal, $stanchart, $accreceivables) = $this->getTransactions($id, $member);
-		return View::make('members.show', compact('member', 'paypal', 'stanchart', 'accreceivables'));
+	    list($paypal, $stanchart, $accreceivables, $cheques) = $this->getTransactions($id, $member);
+		return View::make('members.show', compact('member', 'paypal', 'stanchart', 'accreceivables', 'cheques'));
 	}
 	
 	private function getTransactions($id, $member)
 	{
-
 // 	    "Date",
 // 	    "Transaction",
 // 	    "Currency",
@@ -77,7 +76,6 @@ class MembersController extends \BaseController {
                 $stanchart[] = $data;
             }
 	    }
-
 
 // 	    "Date",
 // 	    "Time",
@@ -126,7 +124,19 @@ class MembersController extends \BaseController {
 	      }
 	    }
 
-	    return array($paypal, $stanchart, $accreceivables);
+	    $cheques = new Spreadsheet('cheques');
+	    $csv = $cheques->readCSV();
+	    $cheques = array();
+	    foreach ($csv as $data)
+	    {
+	      if (stripos($data['Payee'], $id) !== false)
+	      {
+	        $cheques[] = $data;
+	      }
+	    }
+
+var_dump("ending cheques");
+	    return array($paypal, $stanchart, $accreceivables, $cheques);
 	}
 
 	/**

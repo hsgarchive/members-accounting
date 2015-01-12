@@ -64,4 +64,23 @@
     </table>
     </div>
     @endif
+    @if (count($cheques))
+    <div class="table-responsive">
+    <h3>Cheques</h3>
+    <table class="table">
+        <tr>
+            @foreach(array_keys($cheques[0]) as $header)
+                <td>{{ $header }}</td>
+            @endforeach
+        </tr>
+        @foreach($cheques as $details)
+            <tr>
+                @foreach($details as $detail)
+                    <td>{{ $detail }}</td>
+                @endforeach
+            </tr>
+        @endforeach
+    </table>
+    </div>
+    @endif
 @stop
